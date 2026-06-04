@@ -237,7 +237,7 @@ body {
   }
 }
 
-/* Interactive Grid Background */
+/* Interactive Grid Background (no mask-image — avoids Chrome rendering bugs) */
 .grid-background {
   position: fixed;
   inset: 0;
@@ -245,6 +245,13 @@ body {
   height: 100%;
   z-index: 0;
   pointer-events: none;
+  overflow: hidden;
+}
+
+.grid-background::before {
+  content: '';
+  position: absolute;
+  inset: 0;
   background-color: var(--bg-primary);
   background-image:
     linear-gradient(var(--grid-box), var(--grid-box)),
@@ -252,9 +259,17 @@ body {
     linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
   background-size: var(--grid-cell) var(--grid-cell);
   background-position: 0 0;
-  mask-image: radial-gradient(ellipse 130% 100% at 0% 0%, #000 20%, rgba(0, 0, 0, 0.55) 50%, transparent 78%);
-  -webkit-mask-image: radial-gradient(ellipse 130% 100% at 0% 0%, #000 20%, rgba(0, 0, 0, 0.55) 50%, transparent 78%);
-  transition: background-image 0.3s ease;
+}
+
+.grid-background::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 130% 100% at 85% 90%,
+      var(--bg-primary) 0%,
+      rgba(0, 0, 0, 0.75) 42%,
+      transparent 72%);
+  pointer-events: none;
 }
 
 .grid-background svg {
@@ -335,7 +350,9 @@ body {
   flex-shrink: 0;
 }
 
-.logo-frame {
+.logo-frame,
+.logo-frame:link,
+.logo-frame:visited {
   position: relative;
   display: inline-block;
   padding: 0.45rem 0.55rem;
@@ -396,6 +413,7 @@ body {
   letter-spacing: -0.04em;
   text-transform: lowercase;
   line-height: 1;
+  color: var(--text-primary);
 }
 
 .accent-dot {
@@ -1458,9 +1476,11 @@ body {
   --grid-box: rgba(0, 0, 0, 0.04);
 }
 
-:root[data-theme="light"] .grid-background {
-  mask-image: radial-gradient(ellipse 130% 100% at 0% 0%, #000 20%, rgba(0, 0, 0, 0.55) 50%, transparent 78%);
-  -webkit-mask-image: radial-gradient(ellipse 130% 100% at 0% 0%, #000 20%, rgba(0, 0, 0, 0.55) 50%, transparent 78%);
+:root[data-theme="light"] .grid-background::after {
+  background: radial-gradient(ellipse 130% 100% at 85% 90%,
+      var(--bg-primary) 0%,
+      rgba(255, 255, 255, 0.85) 42%,
+      transparent 72%);
 }
 
 :root[data-theme="light"] .theme-toggle-btn:hover {
@@ -1545,11 +1565,8 @@ body {
     display: none;
   }
 
-  .grid-background {
-    --grid-line: rgba(255, 255, 255, 0.11);
-    --grid-box: rgba(255, 255, 255, 0.045);
-    mask-image: radial-gradient(ellipse 120% 90% at 0% 0%, #000 35%, transparent 72%);
-    -webkit-mask-image: radial-gradient(ellipse 120% 90% at 0% 0%, #000 35%, transparent 72%);
+  .grid-background::after {
+    display: none;
   }
 }
 
