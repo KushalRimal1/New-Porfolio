@@ -111,7 +111,7 @@
       background-color: var(--bg-secondary);
       border: 1px solid var(--border-muted);
       border-radius: 12px;
-      padding: 3rem;
+      padding: clamp(1.25rem, 5vw, 3rem);
       box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
       transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
     }
@@ -256,6 +256,30 @@
     .skill-list {
       font-size: 0.9rem;
       color: var(--text-secondary);
+    }
+
+    /* Screen Responsiveness Overrides */
+    @media (max-width: 576px) {
+      .action-bar {
+        flex-direction: column;
+        gap: 0.75rem;
+        width: 100%;
+        align-items: stretch;
+      }
+
+      .action-bar .btn {
+        width: 100%;
+      }
+
+      .card-header {
+        flex-direction: column;
+        gap: 0.25rem;
+        align-items: flex-start;
+      }
+
+      .contact-info {
+        gap: 0.75rem 1.25rem;
+      }
     }
 
     /* Print Styles */

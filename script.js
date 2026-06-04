@@ -89,6 +89,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const hoverSelectors = 'a, button, .btn, .timeline-item, .blog-card, .social-link, .social-icon-link, .hover-target';
     
     document.addEventListener('mouseover', (e) => {
+      const isInputField = e.target.closest('input[type="text"], input[type="email"], textarea');
+      if (isInputField) {
+        cursorOutline.classList.add('hidden');
+        cursorDot.classList.add('hidden');
+        return;
+      } else {
+        cursorOutline.classList.remove('hidden');
+        cursorDot.classList.remove('hidden');
+      }
+
       const projectRow = e.target.closest('.project-row');
       const projectCard = e.target.closest('.project-card');
       const snapTarget = projectRow || projectCard;
@@ -111,6 +121,16 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     
     document.addEventListener('mouseout', (e) => {
+      const relatedInput = e.relatedTarget ? e.relatedTarget.closest('input[type="text"], input[type="email"], textarea') : null;
+      if (relatedInput) {
+        cursorOutline.classList.add('hidden');
+        cursorDot.classList.add('hidden');
+        return;
+      } else {
+        cursorOutline.classList.remove('hidden');
+        cursorDot.classList.remove('hidden');
+      }
+
       const relatedSnap = e.relatedTarget ? (e.relatedTarget.closest('.project-row') || e.relatedTarget.closest('.project-card')) : null;
       const relatedHover = e.relatedTarget ? e.relatedTarget.closest(hoverSelectors) : null;
       
