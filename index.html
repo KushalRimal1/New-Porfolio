@@ -59,7 +59,7 @@
     <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
       <defs>
         <pattern id="gridPattern" width="40" height="40" patternUnits="userSpaceOnUse">
-          <path d="M 40 0 L 0 0 0 40" fill="none" stroke="currentColor" stroke-width="1"></path>
+          <path d="M 40 0 L 0 0 0 40" fill="none" stroke="currentColor" stroke-width="0.5"></path>
         </pattern>
       </defs>
       <rect width="100%" height="100%" fill="url(#gridPattern)"></rect>
@@ -72,11 +72,17 @@
     <!-- Header -->
     <header class="header reveal">
       <div class="logo-container">
-        <a href="#" class="logo">kusal<span class="accent-dot">.</span></a>
+        <a href="#" class="logo-frame hover-target" aria-label="Home">
+          <span class="logo-corner top-left" aria-hidden="true"></span>
+          <span class="logo-corner top-right" aria-hidden="true"></span>
+          <span class="logo-corner bottom-left" aria-hidden="true"></span>
+          <span class="logo-corner bottom-right" aria-hidden="true"></span>
+          <span class="logo-text">kusal<span class="accent-dot">.</span></span>
+        </a>
       </div>
       <nav class="nav-menu">
         <ul>
-          <li><a href="#about" class="nav-link">about</a></li>
+          <li class="nav-item-about"><a href="#about" class="nav-link">about</a></li>
           <li><a href="#education" class="nav-link">education</a></li>
           <li><a href="#projects" class="nav-link">projects</a></li>
           <li><a href="#skills" class="nav-link">skills</a></li>
@@ -111,29 +117,28 @@
       <!-- Hero Section -->
       <section class="hero-section reveal">
         <div class="hero-content">
-          <p class="greeting">hi there👋, I'm</p>
+          <p class="greeting">hi there 👋, I'm</p>
           <h1 class="name">Kusal Rimal</h1>
+          <p class="age-pronouns">20, he/him</p>
+          <p class="tagline">Passionate about analyzing complex datasets, building predictive models, and developing
+            high-performance web applications.</p>
           <h2 class="subtitle">
             <span>BIT Student</span>
             <span class="divider">|</span>
             <span>Aspiring Data Scientist & Developer</span>
           </h2>
-          <p class="tagline">Passionate about analyzing complex datasets, building predictive models, and developing
-            high-performance web applications.</p>
 
           <div class="cta-buttons">
-            <a href="#contact" class="btn btn-primary hover-target">Get in touch</a>
-            <a href="resume.html" target="_blank" class="btn btn-secondary hover-target" id="downloadResume">
-              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="btn-icon">
-                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                <polyline points="7 10 12 15 17 10"></polyline>
-                <line x1="12" y1="15" x2="12" y2="3"></line>
-              </svg>
-              Resume
-            </a>
+            <a href="resume.html" target="_blank" class="btn btn-primary hover-target" id="downloadResume">Resume</a>
 
             <div class="social-icons">
+              <a href="mailto:kusalrimal@gmail.com" class="social-link hover-target" aria-label="Email">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+                  <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                </svg>
+              </a>
               <a href="https://github.com/KushalRimal1" target="_blank" rel="noopener noreferrer"
                 class="social-link hover-target" aria-label="GitHub">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
@@ -150,13 +155,6 @@
                   <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
                   <rect width="4" height="12" x="2" y="9"></rect>
                   <circle cx="4" cy="4" r="2"></circle>
-                </svg>
-              </a>
-              <a href="mailto:kusalrimal@gmail.com" class="social-link hover-target" aria-label="Email">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <rect width="20" height="16" x="2" y="4" rx="2"></rect>
-                  <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
                 </svg>
               </a>
             </div>
@@ -474,7 +472,7 @@
 
           <div class="skills-group hover-target">
             <h3 class="skills-group-title">Languages</h3>
-            <p class="skills-list">Python, JavaScript, HTML, CSS</p>
+            <p class="skills-list">Python, JavaScript, HTML, CSS, C++ (OOPS), Java (Core)</p>
           </div>
 
           <div class="skills-group hover-target">

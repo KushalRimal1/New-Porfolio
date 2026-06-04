@@ -23,14 +23,6 @@ document.addEventListener('DOMContentLoaded', () => {
   // Speed parameter controls the lag/spring smoothing rate
   const speed = 0.15;
   
-  // Hide default cursor in desktop environment
-  if (window.matchMedia('(pointer: fine)').matches) {
-    document.body.style.cursor = 'none';
-  } else {
-    // Hide custom cursors on touchscreen devices
-    if (cursorDot) cursorDot.style.display = 'none';
-    if (cursorOutline) cursorOutline.style.display = 'none';
-  }
 
   window.addEventListener('mousemove', (e) => {
     mouseX = e.clientX;
