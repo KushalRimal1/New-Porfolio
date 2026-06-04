@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kusal Rimal - Resume</title>
+  <meta name="description" content="Professional Resume of Kusal Rimal, Data Scientist & Software Developer.">
+  
+  <script>
+    (function() {
+      const savedTheme = localStorage.getItem('theme');
+      const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const theme = savedTheme || (systemPrefersDark ? 'dark' : 'light');
+      if (theme === 'light') {
+        document.documentElement.setAttribute('data-theme', 'light');
+      } else {
+        document.documentElement.removeAttribute('data-theme');
+      }
+    })();
+  </script>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --bg-primary: #030303;
+      --bg-secondary: #0a0a0c;
+      --accent: #6366f1;
+      --accent-gradient: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+      --text-primary: #f5f5f7;
+      --text-secondary: #86868b;
+      --border-muted: rgba(255, 255, 255, 0.08);
+      --font-sans: 'Inter', sans-serif;
+      --font-heading: 'Outfit', sans-serif;
+    }
+
+    :root[data-theme="light"] {
+      --bg-primary: #ffffff;
+      --bg-secondary: #f6f6f9;
+      --text-primary: #0f0f11;
+      --text-secondary: #6e6e73;
+      --border-muted: rgba(0, 0, 0, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      font-family: var(--font-sans);
+      line-height: 1.5;
+      padding: 2rem 1rem;
+      min-height: 100vh;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .action-bar {
+      max-width: 800px;
+      margin: 0 auto 2rem auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.6rem 1.2rem;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-family: var(--font-sans);
+    }
+
+    .btn-back {
+      background: transparent;
+      color: var(--text-secondary);
+      border: 1px solid var(--border-muted);
+    }
+
+    .btn-back:hover {
+      color: var(--text-primary);
+      border-color: var(--text-primary);
+    }
+
+    .btn-print {
+      background: var(--text-primary);
+      color: var(--bg-primary);
+      border: 1px solid var(--text-primary);
+    }
+
+    .btn-print:hover {
+      background: transparent;
+      color: var(--text-primary);
+    }
+
+    .resume-container {
+      max-width: 800px;
+      margin: 0 auto;
+      background-color: var(--bg-secondary);
+      border: 1px solid var(--border-muted);
+      border-radius: 12px;
+      padding: 3rem;
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+      transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    :root[data-theme="light"] .resume-container {
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.06);
+    }
+
+    :root[data-theme="light"] .btn-print {
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+
+    header {
+      border-bottom: 1px solid var(--border-muted);
+      padding-bottom: 2rem;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    .name {
+      font-family: var(--font-heading);
+      font-size: 2.5rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.5rem;
+      background: var(--accent-gradient);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      display: inline-block;
+    }
+
+    .title {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      font-weight: 400;
+      margin-bottom: 1rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .contact-info {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+    }
+
+    .contact-info a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .contact-info a:hover {
+      color: var(--accent);
+    }
+
+    .section {
+      margin-bottom: 2.5rem;
+    }
+
+    .section-title {
+      font-family: var(--font-heading);
+      font-size: 1.25rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--accent);
+      margin-bottom: 1.25rem;
+      border-bottom: 1px solid var(--border-muted);
+      padding-bottom: 0.4rem;
+    }
+
+    .grid-2col {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    @media (min-width: 600px) {
+      .grid-2col {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .card {
+      margin-bottom: 1.5rem;
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 0.5rem;
+    }
+
+    .card-title {
+      font-family: var(--font-heading);
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    .card-date {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+    }
+
+    .card-subtitle {
+      font-size: 0.95rem;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    .card-desc {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      text-align: justify;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    @media (min-width: 600px) {
+      .skills-grid {
+        grid-template-columns: 120px 1fr;
+      }
+    }
+
+    .skill-category {
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--text-primary);
+    }
+
+    .skill-list {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+    }
+
+    /* Print Styles */
+    @media print {
+      body {
+        background-color: #ffffff !important;
+        color: #000000 !important;
+        padding: 0 !important;
+      }
+
+      .action-bar {
+        display: none !important;
+      }
+
+      .resume-container {
+        background-color: #ffffff !important;
+        border: none !important;
+        box-shadow: none !important;
+        padding: 0 !important;
+        max-width: 100% !important;
+      }
+
+      .name {
+        background: none !important;
+        color: #000000 !important;
+        -webkit-background-clip: initial !important;
+        background-clip: initial !important;
+      }
+
+      .title, .card-subtitle, .section-title {
+        color: #333333 !important;
+        border-color: #dddddd !important;
+      }
+
+      .contact-info, .contact-info a, .card-desc, .skill-list {
+        color: #555555 !important;
+      }
+
+      .contact-info a {
+        text-decoration: underline !important;
+      }
+
+      .section-title {
+        border-bottom: 1.5px solid #333333 !important;
+      }
+
+      header {
+        border-color: #dddddd !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Action Bar -->
+  <div class="action-bar">
+    <a href="index.html" class="btn btn-back">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 0.5rem;"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+      Back to Site
+    </a>
+    <button onclick="window.print()" class="btn btn-print">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 0.5rem;"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+      Print / Save PDF
+    </button>
+  </div>
+
+  <!-- Resume Document Container -->
+  <div class="resume-container">
+    
+    <header>
+      <h1 class="name">Kusal Rimal</h1>
+      <div class="title">Aspiring Data Scientist & Software Developer</div>
+      <div class="contact-info">
+        <a href="mailto:kusalrimal@gmail.com">kusalrimal@gmail.com</a>
+        <span>•</span>
+        <a href="https://www.linkedin.com/in/kusal-rimal-533aba366/" target="_blank" rel="noopener noreferrer">linkedin.com/in/kusal-rimal-533aba366</a>
+        <span>•</span>
+        <a href="https://github.com/KushalRimal1" target="_blank" rel="noopener noreferrer">github.com/KushalRimal1</a>
+      </div>
+    </header>
+
+    <main>
+      
+      <!-- Summary Section -->
+      <section class="section">
+        <h2 class="section-title">Professional Summary</h2>
+        <p class="card-desc" style="font-size: 0.95rem;">
+          Aspiring Data Scientist and Software Developer currently pursuing a Bachelor's Degree in Computer Science. Passionate about applying machine learning techniques and statistical methodologies to analyze complex datasets, build predictive systems, and deploy interactive, data-driven web applications.
+        </p>
+      </section>
+
+      <!-- Education Section -->
+      <section class="section">
+        <h2 class="section-title">Education</h2>
+        
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Bachelor of Information Technology (BIT)</h3>
+            <span class="card-date">2023 - Present</span>
+          </div>
+          <div class="card-subtitle">Purbanchal University</div>
+          <p class="card-desc">Currently in 6th Semester. Expected Graduation: 2027. Core Coursework: Data Structures & Algorithms, Database Management Systems, Machine Learning, Numerical Methods, and Software Engineering.</p>
+        </div>
+
+        <div class="card" style="margin-bottom: 0;">
+          <div class="card-header">
+            <h3 class="card-title">High School (+2 Science, PCM)</h3>
+            <span class="card-date">2021 - 2023</span>
+          </div>
+          <div class="card-subtitle">Kathmandu Model College (KMC)</div>
+          <p class="card-desc">Completed secondary high school education majoring in Physics, Chemistry, and Mathematics. CGPA: 3.50</p>
+        </div>
+      </section>
+
+      <!-- Skills Section -->
+      <section class="section">
+        <h2 class="section-title">Technical Skills</h2>
+        <div class="skills-grid">
+          <div class="skill-category">Languages</div>
+          <div class="skill-list">Python, JavaScript, HTML, CSS</div>
+
+          <div class="skill-category">Frameworks</div>
+          <div class="skill-list">React, Next.js, TensorFlow, PyTorch, Scikit-learn</div>
+
+          <div class="skill-category">Libraries</div>
+          <div class="skill-list">NumPy, Pandas, Matplotlib, Seaborn</div>
+
+          <div class="skill-category">Database & BE</div>
+          <div class="skill-list">MongoDB, Relational Databases (MySQL / SQL-based systems), Node.js, Express.js</div>
+
+          <div class="skill-category">Tools</div>
+          <div class="skill-list">Git, GitHub, Visual Studio Code, Postman</div>
+        </div>
+      </section>
+
+      <!-- Projects Section -->
+      <section class="section" style="margin-bottom: 0;">
+        <h2 class="section-title">Key Projects</h2>
+
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Summarify-Utube.AI</h3>
+            <span class="card-date">Personal Project</span>
+          </div>
+          <p class="card-desc">
+            Extracts transcript streams from YouTube video resources, generates multilingual summaries, and links queries to a Neo4j knowledge graph. Built with FastAPI, Neo4j, Groq LLM, Python, and JavaScript.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Text2Comic.ai</h3>
+            <span class="card-date">Personal Project</span>
+          </div>
+          <p class="card-desc">
+            An automated generative script mapping text transcripts to comic panels. Leverages Stable Diffusion, GPT-3.5 Turbo APIs, OpenCV, Pillow libraries, and Flask.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">CareerPilot-AI</h3>
+            <span class="card-date">Personal Project</span>
+          </div>
+          <p class="card-desc">
+            ATS scoring tool comparing resumes to job descriptions and mapping skill gaps. Leverages Gemini APIs, Next.js, Flask, LangChain, and Scikit-learn.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Ghar Sewa</h3>
+            <span class="card-date">Academic Project</span>
+          </div>
+          <p class="card-desc">
+            A service-oriented platform connecting household service providers with customers. Built with HTML, CSS, JavaScript, PHP, and a MySQL backend.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Blood Bank Management System</h3>
+            <span class="card-date">Academic Project</span>
+          </div>
+          <p class="card-desc">
+            A comprehensive management system tracking donor eligibility, blood group inventories, and hospital request transactions. Built with Core Java, Java Swing GUI components, JDBC interfaces, and a MySQL database backend.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Movie Booking System</h3>
+            <span class="card-date">Academic Project</span>
+          </div>
+          <p class="card-desc">
+            An interactive system application handling seat selections, ticket pricing, show timings, and customer booking logs. Built with C++ utilizing Object-Oriented Programming (OOP) and File Handling.
+          </p>
+        </div>
+
+        <div class="card" style="margin-bottom: 0;">
+          <div class="card-header">
+            <h3 class="card-title">Library Management System</h3>
+            <span class="card-date">Academic Project</span>
+          </div>
+          <p class="card-desc">
+            A lightweight database tracking library book issues, returns, active fine records, and borrower accounts. Built with C programming using structured file operations.
+          </p>
+        </div>
+
+      </section>
+
+    </main>
+
+  </div>
+
+</body>
+</html>
