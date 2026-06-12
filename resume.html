@@ -69,6 +69,11 @@
       align-items: center;
     }
 
+    .action-buttons {
+      display: flex;
+      gap: 0.75rem;
+    }
+
     .btn {
       display: inline-flex;
       align-items: center;
@@ -271,6 +276,12 @@
         width: 100%;
       }
 
+      .action-buttons {
+        flex-direction: column;
+        gap: 0.75rem;
+        width: 100%;
+      }
+
       .card-header {
         flex-direction: column;
         gap: 0.25rem;
@@ -340,10 +351,16 @@
       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 0.5rem;"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
       Back to Site
     </a>
-    <button onclick="window.print()" class="btn btn-print">
-      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 0.5rem;"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
-      Print / Save PDF
-    </button>
+    <div class="action-buttons">
+      <button onclick="window.print()" class="btn btn-print">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 0.5rem;"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+        Print Page
+      </button>
+      <a href="assets/Kusal_Rimal_CV.pdf" download="Kusal_Rimal_CV.pdf" class="btn btn-print">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 0.5rem;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+        Download PDF
+      </a>
+    </div>
   </div>
 
   <!-- Resume Document Container -->
@@ -353,7 +370,7 @@
       <h1 class="name">Kusal Rimal</h1>
       <div class="title">Aspiring Data Scientist & Software Developer</div>
       <div class="contact-info">
-        <a href="mailto:kusalrimal@gmail.com">kusalrimal@gmail.com</a>
+        <a href="mailto:kushalprimal@gmail.com">kushalprimal@gmail.com</a>
         <span>•</span>
         <a href="https://www.linkedin.com/in/kusal-rimal-533aba366/" target="_blank" rel="noopener noreferrer">linkedin.com/in/kusal-rimal-533aba366</a>
         <span>•</span>
