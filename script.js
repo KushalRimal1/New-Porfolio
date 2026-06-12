@@ -312,15 +312,18 @@ document.addEventListener('DOMContentLoaded', () => {
       const formData = {
         name: document.getElementById('formName').value,
         email: document.getElementById('formEmail').value,
-        message: document.getElementById('formMessage').value
+        message: document.getElementById('formMessage').value,
+        _subject: "New Message from Portfolio Website",
+        _captcha: "false"
       };
 
       try {
-        // Try sending to Express backend
-        const response = await fetch('/api/contact', {
+        // Send to FormSubmit email delivery service
+        const response = await fetch('https://formsubmit.co/ajax/kushalprimal@gmail.com', {
           method: 'POST',
           headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
           },
           body: JSON.stringify(formData)
         });
